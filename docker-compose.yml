@@ -1,7 +1,11 @@
 services:
   quickwit:
-    image: quickwit/quickwit:edge-slim-bookworm
-    pull_policy: always
+    # Pinned to the Quickwit version qwui is deployed against. `edge` is
+    # silently a different Quickwit, which makes local checks of the API surface
+    # worthless: they would record edge's endpoints, not the ones a real cluster
+    # serves. Bump this together with the real upgrade.
+    image: quickwit/quickwit:v0.9.0
+    pull_policy: missing
     ports:
       - "7280:7280"
     volumes:
@@ -13,23 +17,6 @@ services:
       timeout: 5s
       retries: 10
       start_period: 10s
-
-  qwui-go:
-    build:
-      context: .
-      dockerfile: Dockerfile.go
-    pull_policy: build
-    ports:
-      - "8080:8080"
-    env_file: .env
-    environment:
-      - QUICKWIT_URL=http://quickwit:7280
-      - PORT=8080
-    depends_on:
-      quickwit:
-        condition: service_healthy
-    profiles:
-      - go
 
   qwui-rust:
     build:
