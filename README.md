@@ -315,7 +315,7 @@ A Helm chart is available under [helm/qwui/](helm/qwui/).
 ### Install
 
 ```bash
-helm repo add qwui https://gitarns.github.io/qwui
+helm repo add qwui https://hatemmezlini.github.io/qwui
 helm repo update
 helm install qwui qwui/qwui \
   --set quickwit.url=http://quickwit:7280
@@ -337,7 +337,7 @@ helm install qwui qwui/qwui \
 
 | Value | Default | Description |
 |-------|---------|-------------|
-| `image.repository` | `ghcr.io/gitarns/qwui-rust` | Image repository |
+| `image.repository` | `ghcr.io/hatemmezlini/qwui-rust` | Image repository |
 | `image.tag` | chart `appVersion` | Image tag |
 | `quickwit.url` | `http://quickwit:7280` | Quickwit base URL |
 | `replicaCount` | `1` | Number of replicas |

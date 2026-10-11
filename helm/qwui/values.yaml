@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   # The Rust backend is the only one.
-  repository: ghcr.io/gitarns/qwui-rust
+  repository: ghcr.io/hatemmezlini/qwui-rust
   pullPolicy: IfNotPresent
   # Defaults to chart appVersion
   tag: ""
