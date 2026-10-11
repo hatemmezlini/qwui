@@ -1,5 +1,9 @@
 # qwui
 
+<a href="doc/screenshots/qwui-logs.png"><img src="doc/screenshots/qwui-logs.png" width="600" alt="Logs view"></a>
+<a href="doc/screenshots/qwui-visualize.png"><img src="doc/screenshots/qwui-visualize.png" width="600" alt="Visualize view"></a>
+<a href="doc/screenshots/qwui-traces.png"><img src="doc/screenshots/qwui-traces.png" width="600" alt="Traces view"></a>
+
 A Kibana-like log explorer UI for [Quickwit](https://quickwit.io). React frontend, Rust backend, OIDC support, and a read-only MCP endpoint for AI agents.
 
 ## Architecture
