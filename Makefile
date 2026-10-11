@@ -1,4 +1,4 @@
-.PHONY: dev dev-rust down logs test quickwit-api-surface
+.PHONY: dev dev-backend down logs test quickwit-api-surface
 
 # Quickwit + data generator only (run backend locally)
 dev:
@@ -7,10 +7,10 @@ dev:
 	docker compose up -d
 
 # Quickwit + backend + data generator
-dev-rust:
+dev-backend:
 	docker compose down -v --remove-orphans
 	docker network prune -f
-	docker compose --profile rust up -d
+	docker compose --profile backend up -d
 
 # Stop everything and wipe volumes
 down:
@@ -23,7 +23,7 @@ logs:
 	docker compose logs -f
 
 # Run the backend locally (requires Quickwit running)
-run-rust:
+run-backend:
 	cd rust-backend && QUICKWIT_URL=http://localhost:7280 cargo run
 
 # Run frontend dev server

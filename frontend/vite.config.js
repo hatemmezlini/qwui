@@ -9,7 +9,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',  // qwui backend (make run-rust)
+        target: 'http://localhost:8080',  // qwui backend (make run-backend)
         changeOrigin: true,
       },
       '/login': {
