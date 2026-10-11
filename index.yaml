@@ -2,6 +2,23 @@ apiVersion: v1
 entries:
   qwui:
   - apiVersion: v2
+    appVersion: 1.1.1
+    created: "2026-10-11T17:32:57.607336685Z"
+    description: Quickwit UI — a lightweight frontend + backend for Quickwit search
+    digest: d9b8b0f524301507a9c524925837f5412a2642497e8ff7ca414174f18d77371a
+    home: https://github.com/hatemmezlini/qwui
+    keywords:
+    - quickwit
+    - ui
+    - frontend
+    name: qwui
+    sources:
+    - https://github.com/hatemmezlini/qwui
+    type: application
+    urls:
+    - https://github.com/hatemmezlini/qwui/releases/download/qwui-1.1.1/qwui-1.1.1.tgz
+    version: 1.1.1
+  - apiVersion: v2
     appVersion: 1.1.0
     created: "2026-10-11T17:11:47.241989895Z"
     description: Quickwit UI — a lightweight frontend + backend for Quickwit search
@@ -18,4 +35,4 @@ entries:
     urls:
     - https://github.com/hatemmezlini/qwui/releases/download/qwui-1.1.0/qwui-1.1.0.tgz
     version: 1.1.0
-generated: "2026-10-11T17:11:47.241997035Z"
+generated: "2026-10-11T17:32:57.607360001Z"
