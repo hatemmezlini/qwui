@@ -28,12 +28,12 @@ qwui/
 │   └── public/
 ├── rust-backend/      # Rust backend (VRL, MCP endpoint)
 │   └── quickwit-api-surface.json   # vendored Quickwit API contract, see MCP
-├── ci/                # Build scripts and the Quickwit spec refresher
+├── ci/                # Quickwit API spec refresher
 ├── doc/
 │   └── MCP.md         # MCP endpoint reference
 ├── dev/               # Docker data generator (Python)
 ├── k6/                # Load tests
-├── Dockerfile.rust    # Builds frontend + backend into one image
+├── Dockerfile         # Builds frontend + backend into one image
 ├── docker-compose.yml
 └── Makefile
 ```
@@ -57,7 +57,7 @@ make dev
 Then run the backend locally:
 
 ```bash
-make run-rust  # cd rust-backend && cargo run
+make run-backend  # cd rust-backend && cargo run
 ```
 
 Then start the frontend:
@@ -72,7 +72,7 @@ Open http://localhost:5173
 ### Option 2 — Backend in Docker
 
 ```bash
-make dev-rust
+make dev-backend
 make run-frontend
 ```
 
@@ -87,7 +87,7 @@ make down      # stop all containers and wipe data volumes
 ```bash
 make logs                              # all services
 docker compose logs -f data-generator # generator only
-docker compose logs -f qwui-rust      # backend
+docker compose logs -f qwui           # backend
 ```
 
 ## Docker Compose services
@@ -96,7 +96,7 @@ docker compose logs -f qwui-rust      # backend
 |---------|---------|-------------|
 | `quickwit` | _(always)_ | Quickwit search engine on port 7280 |
 | `data-generator` | _(always)_ | Continuously ingests sample logs into the `demo` index |
-| `qwui-rust` | `rust` | Backend on port 8080 |
+| `qwui` | `backend` | Backend on port 8080 |
 
 ## Sample data
 
@@ -337,7 +337,7 @@ helm install qwui qwui/qwui \
 
 | Value | Default | Description |
 |-------|---------|-------------|
-| `image.repository` | `ghcr.io/hatemmezlini/qwui-rust` | Image repository |
+| `image.repository` | `ghcr.io/hatemmezlini/qwui` | Image repository |
 | `image.tag` | chart `appVersion` | Image tag |
 | `quickwit.url` | `http://quickwit:7280` | Quickwit base URL |
 | `replicaCount` | `1` | Number of replicas |
@@ -370,5 +370,5 @@ extraEnvFrom:
 ## Building for production
 
 ```bash
-docker build -f Dockerfile.rust -t qwui:rust .
+docker build -t qwui .
 ```

@@ -18,10 +18,10 @@ services:
       retries: 10
       start_period: 10s
 
-  qwui-rust:
+  qwui:
     build:
       context: .
-      dockerfile: Dockerfile.rust
+      dockerfile: Dockerfile
     pull_policy: build
     ports:
       - "8080:8080"
@@ -33,7 +33,7 @@ services:
       quickwit:
         condition: service_healthy
     profiles:
-      - rust
+      - backend
 
   data-generator:
     image: python:3.12-alpine
